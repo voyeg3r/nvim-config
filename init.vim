@@ -11,6 +11,13 @@
 let g:airline_powerline_fonts = 1
 " Map the leader key 
 " let mapleader=","
+"let g:airline_theme='oceanicnext'
+
+" Theme
+syntax enable
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
+"colorscheme OceanicNext
 
 nnoremap ,v :e ~/.config/nvim/init.vim
 
@@ -48,7 +55,7 @@ nnoremap k gk
 cmap w!! w !sudo tee % >/dev/null
 command! SaveAsRoot w !sudo tee %
 
-map <silent> <leader>v :e ~/.vimrc<cr>
+map <silent> <leader>v :e ~/.config/nvim/init.vim<cr>
 map <silent> <leader>z :e ~/.zshrc<cr>
 " copy current buffer to clipboard
 nmap <leader>b :%y+<cr>
@@ -68,7 +75,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'edsono/vim-matchit'
 Plug 'rking/ag.vim'
@@ -84,12 +90,17 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/VisIncr'
+Plug 'mhartington/oceanic-next'
+Plug 'ryanoasis/vim-devicons'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 " Add plugins to &runtimepath
 call plug#end()
 
+map <F2> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " index do vim wiki
 let g:vimwiki_list = [{'path': '~/.config/nvim/wiki/', 'index': 'main'}]
